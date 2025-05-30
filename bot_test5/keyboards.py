@@ -2,8 +2,6 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from bot_test3.keyboards import next_block_1_kb
-
 start_kb = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text="Консультация", callback_data="consultation"),
     InlineKeyboardButton(text="VPN-доступ", url="https://t.me/hitvpnbot?start=169501094140326")],
@@ -322,16 +320,3 @@ price_list_kb = InlineKeyboardMarkup(
         [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
     ]
 )
-
-#панель администратора, которая сможет выводить список пользователей и дополнительную информацию, подсчитывать статистику их количества,
-# а также осуществлять блокировку и разблокировку пользователей.
-#admin_panel = InlineKeyboardMarkup(
-    #inline_keyboard=[
-        #[InlineKeyboardButton(text='Пользователи', callback_data='users')],
-        #[InlineKeyboardButton(text='Статистика', callback_data='stat')],
-        #[
-        #InlineKeyboardButton(text='Блокировка', callback_data='block'),
-        #InlineKeyboardButton(text='Разблокировка', callback_data='unblock')
-        #]
-    #]
-#)
