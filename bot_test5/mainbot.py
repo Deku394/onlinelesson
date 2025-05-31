@@ -25,12 +25,13 @@ async def start(message: types.Message):
     user_id = message.from_user.id
     phone_number = message.contact.phone_number if message.contact else "Не указано"
     name = message.from_user.full_name
+    custom_name = message.from_user.username
 
     # Регистрируем пользователя
     registered_users[user_id] = {
         'name': name,
         'phone': phone_number,
-        'custom_name': message.from_user.username,
+        'custom_name': custom_name,
     }
     with open('photo_1.jpg', 'rb') as img:
         await message.answer_photo(img, f'Добро пожаловать, {message.from_user.full_name}!👋\n' + start_text, parse_mode=types.ParseMode.HTML, reply_markup=start_kb)
@@ -63,7 +64,7 @@ async def list_users(message: types.Message):
         return
 
     user_list = "\n".join(
-        [f"ID: {user_id}, Имя: {user['name']}, Имя пользователя (через @): {user['custom_name']}" for user_id, user in registered_users.items()])
+        [f"ID: {user_id}, Имя: {user['name']}, Имя пользователя (через @): {user.get('custom_name', 'Не указано')}" for user_id, user in registered_users.items()])
     await message.reply(f"Список зарегистрированных пользователей:\n{user_list}")
 
 @dp.message_handler(lambda message: message.text == "Отправить сообщение выбранным пользователям")
@@ -75,7 +76,7 @@ async def select_users_to_send_message(message: types.Message, state: FSMContext
         await state.finish()
         return
 
-    user_list = "\n".join([f"ID: {user_id}, Имя: {user['name']}, Имя пользователя (через @): {user['custom_name']}" for user_id, user in registered_users.items()])
+    user_list = "\n".join([f"ID: {user_id}, Имя: {user['name']}, Имя пользователя (через @): {user.get('custom_name', 'Не указано')}" for user_id, user in registered_users.items()])
     await message.reply(f"Выберите пользователей по ID (через запятую), которым хотите отправить сообщение:\n{user_list}")
 
 
