@@ -30,6 +30,7 @@ async def start(message: types.Message):
     registered_users[user_id] = {
         'name': name,
         'phone': phone_number,
+        'custom_name': message.from_user.username,
     }
     with open('photo_1.jpg', 'rb') as img:
         await message.answer_photo(img, f'Добро пожаловать, {message.from_user.full_name}!👋\n' + start_text, parse_mode=types.ParseMode.HTML, reply_markup=start_kb)
