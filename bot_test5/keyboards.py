@@ -1,12 +1,12 @@
 #вёрстка клавиатур
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 start_kb = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text="Консультация", callback_data="consultation"),
-    InlineKeyboardButton(text="VPN-доступ", url="https://t.me/hitvpnbot?start=169501094140326")],
-    [InlineKeyboardButton(text="Мой ТГ-канал", url='https://t.me/+mX695lhKCAxhOGVi'),
+    InlineKeyboardButton(text="Мой ТГ-канал", url='https://t.me/+mX695lhKCAxhOGVi')],
+    [InlineKeyboardButton(text="Акции", callback_data="action"),
     InlineKeyboardButton(text="Про продвижение", callback_data="about_promotion")],
+    [InlineKeyboardButton(text="Свод предупреждений", callback_data="rules")],
 ]
 )
 
@@ -16,16 +16,28 @@ consultation_kb = InlineKeyboardMarkup(
     ]
 )
 
+action_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')],
+    ]
+)
+
 about_promotion_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text='Рассылка', callback_data='mailing'),
-        InlineKeyboardButton(text='Массфолл', callback_data='subscription')],
+        [InlineKeyboardButton(text='Массфолл', callback_data='subscription'),
+         InlineKeyboardButton(text='Рассылка', callback_data='mailing')],
         [InlineKeyboardButton(text='Авторассылка', callback_data='auto_mailing'),
         InlineKeyboardButton(text='Комментинг в ТГ', callback_data='commenting')],
         [InlineKeyboardButton(text='ТГ-боты', callback_data='tg_bot'),
         InlineKeyboardButton(text='Прайс-лист', callback_data='price_list')],
         [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
     ],
+)
+
+rules_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')],
+    ]
 )
 
 #Рассылка
@@ -80,15 +92,7 @@ mailing_next_block_kb_5 = InlineKeyboardMarkup(
 
 mailing_next_block_kb_6 = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='mailing_next_block_7')],
         [InlineKeyboardButton(text='Назад', callback_data='mailing_back_list_7')],
-        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
-    ]
-)
-
-mailing_next_block_kb_7 = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [InlineKeyboardButton(text='Назад', callback_data='mailing_back_list_8')],
         [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
     ]
 )
@@ -137,15 +141,7 @@ subscription_next_block_kb_4 = InlineKeyboardMarkup(
 
 subscription_next_block_kb_5 = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='subscription_next_block_6')],
         [InlineKeyboardButton(text='Назад', callback_data='subscription_back_list_6')],
-        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
-    ]
-)
-
-subscription_next_block_kb_6 = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [InlineKeyboardButton(text='Назад', callback_data='subscription_back_list_7')],
         [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
     ]
 )
@@ -315,8 +311,14 @@ tg_bot_next_block_kb_4 = InlineKeyboardMarkup(
 
 price_list_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text='Перейти к оплате', url='https://t.me/ZackFosteroverkill')],
+        [InlineKeyboardButton(text='Перейти к оплате', url='https://t.me/ZackFosterpromotion')],
         [InlineKeyboardButton(text='Назад', callback_data='price_list_back_list_1')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+consultation_back_menu_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
         [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
     ]
 )
