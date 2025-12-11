@@ -29,7 +29,8 @@ about_promotion_kb = InlineKeyboardMarkup(
         [InlineKeyboardButton(text='Авторассылка', callback_data='auto_mailing'),
         InlineKeyboardButton(text='Комментинг в ТГ', callback_data='commenting')],
         [InlineKeyboardButton(text='ТГ-боты', callback_data='tg_bot'),
-        InlineKeyboardButton(text='Прайс-лист', callback_data='price_list')],
+        InlineKeyboardButton(text='Рассылка в ТГ', callback_data='mailing_tg')],
+        [InlineKeyboardButton(text='Прайс-лист', callback_data='price_list')],
         [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
     ],
 )
@@ -305,6 +306,71 @@ tg_bot_next_block_kb_3 = InlineKeyboardMarkup(
 tg_bot_next_block_kb_4 = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text='Назад', callback_data='tg_bot_back_list_5')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+#Рассылка в телеграм
+
+mailing_tg_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Перейти к ТЗ', callback_data='mailing_tg_next_block_1')],
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_1')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+mailing_tg_next_block_kb_1 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='mailing_tg_next_block_2')],
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_2')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+mailing_tg_next_block_kb_2 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='mailing_tg_next_block_3')],
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_3')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+mailing_tg_next_block_kb_3 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='mailing_tg_next_block_4')],
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_4')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+mailing_tg_next_block_kb_4 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='mailing_tg_next_block_5')],
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_5')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+mailing_tg_next_block_kb_5 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='mailing_tg_next_block_6')],
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_6')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+mailing_tg_next_block_kb_6 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Перейти к следующему пункту', callback_data='mailing_tg_next_block_7')],
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_7')],
+        [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
+    ]
+)
+
+mailing_tg_next_block_kb_7 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Назад', callback_data='mailing_tg_back_list_8')],
         [InlineKeyboardButton(text='Назад в главное меню', callback_data='back_menu')]
     ]
 )
