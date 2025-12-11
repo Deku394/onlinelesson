@@ -4,9 +4,9 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import filters  # filters не используется, можно удалить
-from config import *  # Убедитесь, что config.py содержит api
-from keyboards import *  # Убедитесь, что keyboards.py содержит start_kb
-from texst import *  # Убедитесь, что texst.py содержит start_text
+from config import *
+from keyboards import *
+from texst import *
 import logging
 import json
 import os
@@ -527,6 +527,22 @@ async def tg_bot(call):
 
     with open('photo_tg_bots_.jpg', 'rb') as img:
         new_message = await call.message.answer_photo(img, tg_bot_text, parse_mode=types.ParseMode.HTML, reply_markup=tg_bot_kb)
+        last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg')
+async def mailing_tg(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    with open('photo_mailing_.jpg', 'rb') as img:
+        new_message = await call.message.answer_photo(img, mailing_tg_text, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_kb)
         last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
     await call.answer()
 
@@ -1518,6 +1534,237 @@ async def tg_bot_back_list_5(call):
             logging.error(f"Ошибка при удалении сообщения: {e}")
 
     new_message = await call.message.answer(ts_bot_text_2, parse_mode=types.ParseMode.HTML, reply_markup=tg_bot_next_block_kb_3)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_next_block_1')
+async def mailing_tg_next_block_1(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    with open('photo_ts_mailing.jpg', 'rb') as img:
+        new_message = await call.message.answer_photo(img, ts_mailing_tg_text, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_1)
+        last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_1')
+async def mailing_tg_back_list_1(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    with open('photo_promotion.jpg', 'rb') as img:
+        new_message = await call.message.answer_photo(img, about_promotion_text, parse_mode=types.ParseMode.HTML, reply_markup=about_promotion_kb)
+        last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_next_block_2')
+async def mailing_tg_next_block_2(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    with open('photo_com_1.jpg', 'rb') as img:
+        new_message = await call.message.answer_photo(img, ts_mailing_tg_text_1, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_2)
+        last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_2')
+async def mailing_tg_back_list_2(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    with open('photo_mailing_.jpg', 'rb') as img:
+        new_message = await call.message.answer_photo(img, mailing_tg_text, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_kb)
+        last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_next_block_3')
+async def mailing_tg_next_block_3(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_2, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_3)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_3')
+async def mailing_tg_back_list_3(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    with open('photo_ts_mailing.jpg', 'rb') as img:
+        new_message = await call.message.answer_photo(img, ts_mailing_tg_text, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_1)
+        last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_next_block_4')
+async def mailing_tg_next_block_4(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_3, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_4)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_4')
+async def mailing_tg_back_list_4(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    with open('photo_com_1.jpg', 'rb') as img:
+        new_message = await call.message.answer_photo(img, ts_mailing_tg_text_1, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_2)
+        last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_next_block_5')
+async def mailing_tg_next_block_5(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_4, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_5)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_5')
+async def mailing_tg_back_list_5(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_2, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_3)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_next_block_6')
+async def mailing_tg_next_block_6(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_5, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_6)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_6')
+async def mailing_tg_back_list_6(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_3, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_4)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_next_block_7')
+async def mailing_tg_next_block_7(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_6, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_7)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_7')
+async def mailing_tg_back_list_7(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_4, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_5)
+    last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
+    await call.answer()
+
+@dp.callback_query_handler(text='mailing_tg_back_list_8')
+async def mailing_tg_back_list_8(call):
+    global last_message_id  # Объявляем переменную как глобальную
+
+    # Удаляем предыдущее сообщение, если оно существует
+    if last_message_id:
+        try:
+            await bot_tests.delete_message(chat_id=call.message.chat.id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Ошибка при удалении сообщения: {e}")
+
+    new_message = await call.message.answer(ts_mailing_tg_text_5, parse_mode=types.ParseMode.HTML, reply_markup=mailing_tg_next_block_kb_6)
     last_message_id = new_message.message_id  # Сохраняем ID нового сообщения
     await call.answer()
 
